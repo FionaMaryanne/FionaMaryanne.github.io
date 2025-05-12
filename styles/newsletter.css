@@ -194,6 +194,62 @@ nav {
     width: 100%;
     max-width: 550px;
   }
+
+  @media (max-width: 768px) {
+    .newsletter-section {
+      flex-direction: column;
+      min-height: calc(100vh - 50px); /* full viewport height minus footer height */
+      display: flex;
+    }
+    .newsletter-left {
+      flex: 0 0 auto;
+      width: 100%;
+      padding: 0 20px;
+    }
+    .newsletter-left img {
+      max-width: 60%;
+      position: relative;
+      bottom: 0;
+      margin: 0 auto;
+      display: none;
+    }
+    .newsletter-right {
+      flex: 1 0 auto;
+      width: 100%;
+      padding: 30px 20px;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* vertically center content */
+      color: #ffffff; /* keep original color */
+    }
+    .newsletter-right h1 {
+      font-size: 2rem;
+      color: #ffffff;
+    }
+    .newsletter-right p {
+      font-size: 1rem;
+      color: #ffffff;
+    }
+    .newsletter-form {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .newsletter-form input[type="email"], .newsletter-form button {
+      width: 100%;
+      font-size: 1rem;
+    }
+    .newsletter-wave-container {
+      display: none;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+    }
+  }
   
   .newsletter-form input[type="email"] {
     flex-grow: 1;
@@ -231,8 +287,8 @@ nav {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 40%;
-    width: 100px;
+    left: 37%;
+    width: 150px;
     transform: translateX(-50%);
     overflow: hidden;
     z-index: 2;
@@ -242,7 +298,7 @@ nav {
   .newsletter-wave-container svg {
     display: block;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 20%;
     min-width: 100vh;
     min-height: 60px;
