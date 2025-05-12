@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aina Publishing</title>
+  <link rel="icon" type="image/x-icon" href="home assets/favicon_aina.png">
+  <link rel="stylesheet" href="styles/shopping.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"> 
+        <img src="./home assets/logo.png" alt="Journey logo" />
+      </div>
+      <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="newsletter.html">Newsletter</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+      </ul>
+      <div class="cart-icon">
+        <a href="shopping.html">
+        <img src="home assets/shop.png" alt="Cart" />
+        </a>
+      </div>
+    </nav>
+    
+    <script>
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+    
+      hamburger.addEventListener('click', () => {
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+        hamburger.setAttribute('aria-expanded', !expanded);
+        navLinks.classList.toggle('active');
+      });
+    </script>
+      </header>
+
+  <main class="cart-container">
+    <h1>My Carts</h1>
+    <div class="cart-content">
+      <div class="cart-items-column">
+        <div class="cart-item-card">
+          <img
+            src="books/main.png"
+            alt="A Faraway Journey"
+            class="item-image"
+          />
+          <div class="item-info">
+            <p class="item-title">A Faraway Journey</p>
+            <div class="item-controls">
+              <div class="item-quantity">
+                <span>QTY</span>
+                <button class="qty-btn minus" aria-label="Kurangi jumlah">
+                  -
+                </button>
+                <span class="qty-value">1</span>
+                <button class="qty-btn plus" aria-label="Tambah jumlah">
+                  +
+                </button>
+              </div>
+              <div class="item-price">
+                <span>Price</span><span class="price-value">$5.15</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-item-card">
+          <img
+            src="books/activity.png"
+            alt="Activity Workbook"
+            class="item-image"
+          />
+          <div class="item-info">
+            <p class="item-title">Activity Workbook</p>
+            <div class="item-controls">
+              <div class="item-quantity">
+                <span>QTY</span>
+                <button class="qty-btn minus" aria-label="Kurangi jumlah">
+                  -
+                </button>
+                <span class="qty-value">1</span>
+                <button class="qty-btn plus" aria-label="Tambah jumlah">
+                  +
+                </button>
+              </div>
+              <div class="item-price">
+                <span>Price</span><span class="price-value">$6.15</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-item-card">
+          <img
+            src="books/creative.png"
+            alt="Creative Workbook"
+            class="item-image"
+          />
+          <div class="item-info">
+            <p class="item-title">Creative Workbook</p>
+            <div class="item-controls">
+              <div class="item-quantity">
+                <span>QTY</span>
+                <button class="qty-btn minus" aria-label="Kurangi jumlah">
+                  -
+                </button>
+                <span class="qty-value">1</span>
+                <button class="qty-btn plus" aria-label="Tambah jumlah">
+                  +
+                </button>
+              </div>
+              <div class="item-price">
+                <span>Price</span><span class="price-value">$6.15</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sub-total-row">
+          <div class="bg-total">
+            <span>Sub-total</span> <span class="sub-total-value">$17.45</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-summary-column">
+        <div class="order-summary-card">
+          <h2>Order Summary</h2>
+          <hr class="summary-divider" />
+
+          <div class="summary-details-top">
+            <div class="summary-item items-row">
+              <span class="items-label">Items</span>
+              <input
+                type="text"
+                class="items-value-input"
+                value="3"
+                readonly
+              />
+            </div>
+            <div class="summary-item shipping-row">
+              <span class="shipping-label">Shipping</span>
+              <input
+                type="text"
+                class="shipping-input"
+                placeholder="Shipping Type"
+              />
+            </div>
+            <div class="summary-item discount-code-row">
+              <span class="discount-code-label">Discount Code</span>
+              <div class="discount-code-input-group">
+                <input
+                  type="text"
+                  class="discount-code-input"
+                  placeholder="Type Here..."
+                />
+                <button class="apply-button">Apply</button>
+              </div>
+            </div>
+          </div>
+
+          <hr class="summary-divider" />
+
+          <div class="summary-details-bottom">
+            <div class="summary-item discount-amount-row">
+              <span class="discount-amount-label">Discount</span>
+              <input
+                type="text"
+                class="discount-amount-value"
+                value="$xx"
+                readonly
+              />
+            </div>
+            <div class="summary-item tax-row">
+              <span class="tax-label">Tax</span>
+              <input type="text" class="tax-value" value="$xx" readonly />
+            </div>
+            <div class="summary-item total-row">
+              <span class="total-label">Total</span>
+              <input
+                type="text"
+                class="total-value"
+                value="$17.45"
+                readonly
+              />
+            </div>
+          </div>
+
+          <div class="summary-actions">
+            <button class="checkout-button">Checkout</button>
+            <a href="index.html">
+            <button class="back-shopping-button">Back To Shopping</button>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  
+  <section class="footer">
+    <p>© AINA publishing. All Rights Reserved</p>
+  </section>
+  
+</body>
+</html>

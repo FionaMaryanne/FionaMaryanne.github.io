@@ -1,0 +1,448 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", Helvetica;
+  background-color: #dcafc9;
+  color: #5e2a4b;
+}
+
+header {
+  background: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+nav {
+  position: fixed; /* or sticky if you prefer */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem; /* or what you used before */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}  
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo img {
+  width: 80%;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  gap: clamp(1rem, 3vw, 2rem);
+  color: #333;
+  font-weight: 500;
+  font-size: clamp(0.8rem, 1.3vw, 1.1rem);
+}
+
+/* Hamburger menu styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100;
+}
+
+.hamburger:focus {
+  outline: none;
+}
+
+.hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 60px; /* height of navbar */
+    right: 0;
+    height: calc(100vh - 60px);
+    width: 200px;
+    background-color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1050;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+  .nav-links a {
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
+  .cart-icon {
+    display: none;
+  }
+}
+
+.cart-icon img {
+  width: 70%;
+}
+  .newsletter-section {
+    display: flex;
+    width: 100%;
+    min-height: 100vh; 
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  .newsletter-left {
+    flex: 0 0 90%;
+    background-color: #efdee0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 1; 
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+  }
+  
+  .newsletter-right {
+    flex: 1;
+    background-color: #dcafc9;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #333;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    min-height: 100vh; 
+  }
+  
+  .newsletter-wave-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 90%;
+    width: 100px;
+    transform: translateX(-50%);
+    overflow: hidden;
+    z-index: 2; 
+    pointer-events: none;
+    min-height: 100vh; 
+  }
+  
+  .newsletter-wave-container svg {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    min-width: 100vh;
+    min-height: 100px; 
+    transform-origin: center center;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    fill: #efdee0; 
+  }
+  
+  .book-detail-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3; 
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    padding: 60px 80px; 
+    box-sizing: border-box;
+    gap: 50px; 
+  }
+  
+  .book-image-section {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    max-width: 450px; 
+  }
+  
+  .book-cover-image {
+    width: 100%; 
+    max-width: 450px; 
+    max-height: 570px;
+    background-color: #ffffff;
+    border-radius: 100px; 
+  }
+  
+  .add-to-cart-btn {
+    padding: 12px 25px;
+    margin-top: 25px;
+    background-color: #832c5e; 
+    width: 50vh;
+    justify-content: center;
+    color: white;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px; /
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #6b234a; 
+  }
+  
+  .book-info-section {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    color: #333; 
+    max-width: 800px; 
+    margin-top: 10px;
+  }
+  
+  .book-info-section h2 {
+    font-size: 2em; 
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #a68ad5;
+  }
+  
+  .book-info-section .book-title {
+    font-size: 3em;
+    color: #832c5e;
+    margin-bottom: 5px;
+    line-height: 1.2;
+  }
+  
+  .book-info-section .book-author {
+    font-size: 1.5em;
+    color: #dcafc9;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  .book-info-section .book-price {
+    font-size: 2em; 
+    font-weight: semibold;
+    color: #832c5e; 
+    margin-bottom: 25px;
+  }
+  
+  .summary-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .summary-card .summary-title {
+    font-weight: semibold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #832c5e;
+  }
+  
+  .summary-card .description {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #dcafc9;
+    margin-bottom: 20px;
+  }
+  
+  .category-tags {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+  }
+  
+  .category-tag {
+    background-color: #dcafc9;
+    color: #ffffff;
+    padding: 6px 15px;
+    border-radius: 10px; 
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+
+.footer {
+    background-color: #A3BED1; /* soft blue background like in the image */
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    color: white; /* or a light color for contrast */
+    font-family: 'Poppins', sans-serif; /* optional – match your style */
+    position: absolute;
+    width: 100%;
+    z-index: 4;
+    bottom: 1;
+  }
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .newsletter-section {
+    flex-direction: column;
+  }
+
+  body {
+    font-family: "Poppins", Helvetica;
+    background-color: #f3e6e9;
+    color: #5e2a4b;
+  }
+
+  .newsletter-left,
+  .newsletter-right {
+    min-height: auto;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .book-detail-overlay {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .book-image-section {
+    max-width: 100%;
+  }
+
+  .book-cover-image {
+    max-width: 300px;
+    max-height: 380px;
+    border-radius: 50px;
+  }
+
+  .add-to-cart-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+  }
+
+  .book-info-section {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .book-info-section h2 {
+    font-size: 1.5em;
+  }
+
+  .book-info-section .book-title {
+    font-size: 2em;
+  }
+
+  .book-info-section .book-author {
+    font-size: 1.2em;
+  }
+
+  .book-info-section .book-price {
+    font-size: 1.5em;
+  }
+
+  .summary-card .summary-title {
+    font-size: 1em;
+  }
+
+  .summary-card .description {
+    font-size: 0.9em;
+  }
+
+  .category-tag {
+    font-size: 0.8em;
+  }
+
+  .footer {
+    position: relative;
+    bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-cover-image {
+    max-width: 200px;
+    max-height: 250px;
+    border-radius: 30px;
+  }
+
+  .add-to-cart-btn {
+    font-size: 1em;
+    padding: 12px;
+  }
+
+  .book-info-section h2 {
+    font-size: 1.2em;
+  }
+
+  .book-info-section .book-title {
+    font-size: 1.5em;
+  }
+
+  .book-info-section .book-author {
+    font-size: 1em;
+  }
+
+  .book-info-section .book-price {
+    font-size: 1.2em;
+  }
+
+  .summary-card .summary-title {
+    font-size: 0.9em;
+  }
+
+  .summary-card .description {
+    font-size: 0.8em;
+  }
+
+  .category-tag {
+    font-size: 0.7em;
+  }
+}

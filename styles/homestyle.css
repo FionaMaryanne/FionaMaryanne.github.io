@@ -1,0 +1,659 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", Helvetica;
+  background-color: #f3e6e9;
+  color: #5e2a4b;
+}
+
+header {
+  background: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+nav {
+  position: fixed; /* or sticky if you prefer */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem; /* or what you used before */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}  
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo img {
+  width: 80%;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  gap: clamp(1rem, 3vw, 2rem);
+  color: #333;
+  font-weight: 500;
+  font-size: clamp(0.8rem, 1.3vw, 1.1rem);
+}
+
+/* Hamburger menu styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100;
+}
+
+.hamburger:focus {
+  outline: none;
+}
+
+.hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 60px; /* height of navbar */
+    right: 0;
+    height: calc(100vh - 60px);
+    width: 200px;
+    background-color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1050;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
+  .cart-icon {
+    display: none;
+  }
+}
+
+.cart-icon img {
+  width: 70%;
+}
+
+.hero {
+  background-color: #efdee0;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-bottom: 0;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.book-image img {
+  width: 320px;
+}
+
+.book-image-wrapper {
+position: relative;
+display: inline-block;
+}
+
+.book-image-wrapper {
+position: relative;
+width: fit-content;
+}
+
+.book-image-wrapper .blue-blob {
+position: absolute;
+top: -80px;
+left: -80px;
+width: 400px; /* adjust as needed */
+z-index: 1;
+animation: spinBlob 60s linear infinite;
+transform-origin: center;
+}
+
+.book-image-wrapper .book-cover {
+position: relative;
+z-index: 2;
+width: 450px; /* adjust as needed */
+}
+
+@keyframes spinBlob {
+0% {
+  transform: rotate(0deg);
+}
+100% {
+  transform: rotate(360deg);
+}
+}
+
+.book-content {
+  max-width: 500px;
+}
+
+.book-content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #5e2a4b;
+}
+
+.book-content p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.buttons {
+  display: flex;
+
+  gap: 1rem;
+}
+
+.btn {
+  text-decoration: none;
+  z-index: 3;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background-color: #5e2a4b;
+  color: white;
+}
+
+.btn.secondary {
+  border: 2px solid #5e2a4b;
+  z-index: 3;
+  border-width: 2px;
+  color: #5e2a4b;
+}
+
+.hero .wave-container.hero-wave {
+  position: absolute;
+  display: block;
+  line-height: 0;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.hero .container,
+.hero .right-box,
+.hero .cta-buttons {
+  position: relative;
+  z-index: 1;
+}
+
+.new-releases {
+  background-color: #dcafc9;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-bottom: 0;
+}
+
+.new-releases .container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.new-releases .heading {
+  color: white;
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.book-card {
+  text-align: center;
+  transition: transform 0.3s ease, shadow 0.3s ease;
+  width: 30%;
+  max-width: 350px;
+  margin-top: -50px;
+  margin-bottom: 80px;
+}
+
+.book-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 16px;
+  border-radius: 4px;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: none;
+}
+
+.new-releases .wave-container.new-releases-wave {
+  position: absolute;
+  bottom: -1px;
+  display: block;
+  line-height: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.new-releases .container,
+.new-releases h2,
+.new-releases .book-cards {
+  position: relative;
+  z-index: 1;
+}
+.updated {
+  position: relative; 
+  text-align: center;
+  overflow: visible; 
+}
+
+.wave2 {
+  position: absolute; 
+  top: -100px; 
+  left: 0;
+  height: 120%;
+  width: 100%;
+  z-index: 2;
+}
+
+.image3 {
+  position: absolute;   
+  left: 0;
+  bottom: 0px;               
+  z-index: 3;
+  width: 55%
+}
+
+.text-box {
+  z-index: 4;
+  text-align: left;
+  position: relative;
+  color: white;
+  max-width: 600px;
+  margin-left: auto;
+  padding: 60px 40px;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  padding: 90px 20px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 3;
+}
+
+
+.text-box h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 25px;
+  line-height: 1.2;
+}
+
+.text-box p {
+  font-size: 1.25rem;
+  margin-bottom: 25px;
+}
+
+.signup-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.signup-form input {
+  padding: 10px;
+  font-size: 1rem;
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+
+.signup-form button {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.signup-form button:hover {
+  background-color: white;
+  color: #b38dde;
+}
+
+.newsletter {
+  background-color: #a68ad5;
+  min-height: 100svh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 32px;
+}
+
+.newsletter .container {
+  width: 100%;
+  margin: 0 auto;
+  z-index: 1;
+  padding-bottom: 64px;
+}
+
+.newsletter-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+}
+.newsletter-image {
+  flex-shrink: 0;
+}
+
+.newsletter-image img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  max-width: 50vw;
+  width: auto;
+  max-height: 80vh;
+  height: auto;
+  border-radius: 8px;
+}
+
+.newsletter-form {
+  max-width: 740px;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  z-index: 3;
+}
+
+.newsletter-form h2 {
+  color: white;
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.newsletter-form p {
+  color: white;
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+}
+
+.newsletter-form .form-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.newsletter-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.email-input {
+  padding: 12px 16px;
+  border-radius: 4px;
+  border: none;
+  font-size: 16px;
+  width: 100%;
+  flex-grow: 1;
+  min-width: 200px;
+}
+
+.newsletter .btn {
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+  height: 43.2px;
+  box-sizing: border-box;
+}
+
+.newsletter .btn:hover {
+  background-color: white;
+  color: #a68ad5;
+}
+
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-container svg {
+  display: block;
+  width: 100%;
+  height: 700px;
+}
+
+.footer {
+  background-color: #A3BED1; /* soft blue background like in the image */
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  color: white; /* or a light color for contrast */
+  font-family: 'Poppins', sans-serif; /* optional – match your style */
+  position: absolute;
+  width: 100%;
+  z-index: 4;
+  bottom: 1;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .book-content h1 {
+    font-size: 2.5rem;
+  }
+  .book-content p {
+    font-size: 0.9rem;
+  }
+  .btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  .book-image-wrapper .book-cover {
+    width: 300px;
+  }
+  .book-image-wrapper .blue-blob {
+    width: 300px;
+    top: -60px;
+    left: -60px;
+  }
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.4rem;
+  }
+  
+  .book-card {
+    text-align: center;
+    transition: transform 0.3s ease, shadow 0.3s ease;
+    width: 10%;
+    max-width: 100px;
+    margin-top: -50px;
+    margin-bottom: 80px;
+  }
+  
+  .book-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border-radius: 4px;
+  }
+  
+  .book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: none;
+  }
+  /* Removed fixed font size to allow clamp() to control font size */
+  .nav-links a {
+    font-size: 14px;
+  }
+  .book-card {
+    width: 45%;
+    max-width: none;
+    margin-bottom: 40px;
+  }
+  .new-releases .heading {
+    font-size: 3rem;
+  }
+  .newsletter-form h2 {
+    font-size: 3rem;
+  }
+  .newsletter-form p {
+    font-size: 1.2rem;
+  }
+  .newsletter-image img {
+    max-width: 40vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-content h1 {
+    font-size: 2rem;
+  }
+  .book-content p {
+    font-size: 0.8rem;
+  }
+  .btn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  .book-image-wrapper .book-cover {
+    width: 200px;
+  }
+  .book-image-wrapper .blue-blob {
+    width: 200px;
+    top: -40px;
+    left: -40px;
+  }
+  .nav-links {
+    gap: 0.5rem;
+  }
+  /* Removed fixed font size to allow clamp() to control font size */
+  .nav-links a {
+    font-size: 12px;
+  }
+  .book-card {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .new-releases .heading {
+    font-size: 2rem;
+  }
+  .newsletter-form h2 {
+    font-size: 2rem;
+  }
+  .newsletter-form p {
+    font-size: 1rem;
+  }
+  .newsletter-image img {
+    max-width: 60vw;
+  }
+}
